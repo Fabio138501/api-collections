@@ -1,10 +1,10 @@
 package one.digitalinnovation.collection
 
 fun main() {
-    val João = funcionario("João", 5000.0)
-    val Fabio = funcionario("Fabio", 1000.0)
-    val Maria = funcionario("Maria", 500.0)
-    val funcionarios = listOf(João, Fabio, Maria )
+    val joao = Funcionario("João", 5000.0, tipoContratacao = "CLT")
+    val fabio = Funcionario("Fabio", 1000.0, tipoContratacao = "PJ")
+    val maria = Funcionario("Maria", 500.0, tipoContratacao = "CLT")
+    val funcionarios = listOf(joao, fabio, maria )
 
     funcionarios.forEach { println(it) }
     println("____________________________________________")
@@ -14,14 +14,14 @@ fun main() {
     println("____________________________________________")
 
     funcionarios
-    .sortedBy { it.salario }
+    .groupBy { it.tipoContratacao }
     .forEach { println(it) }
-
 }
 
-data class funcionario (
+data class Funcionario (
     val nome: String,
-    val salario: Double
+    val salario: Double,
+    val tipoContratacao: String
 )
 
 
